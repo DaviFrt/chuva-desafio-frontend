@@ -1,3 +1,44 @@
+.sidebar {
+  max-width: 22rem;
+  height: 100vh;
+  display: fixed;
+  -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+}
+
+.sidebar header {
+  padding: 1.5rem;
+  text-align: center;
+  color: #FFF;
+}
+
+.sidebar li {
+  list-style: none;
+  padding: 0.7rem 2.7rem;
+  font-size: 1.5rem;
+  font-weight: 500;
+  border-bottom: 2px solid #E7E7E7;
+}
+
+.sidebar li a {
+  text-decoration: none;
+  color: #725C5C;
+}
+
+.sidebar li.current {
+  background-color: #FDF1EB;
+  position: relative;
+}
+
+.sidebar li.current::after {
+  content: "";
+  width: 0.5rem;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
 :root {
   font-size: 62.5%;
 }
@@ -11,5 +52,23 @@
 
 body {
   font-size: 1.4rem;
+  font-family: "Quicksand", sans-serif;
+}
+
+.linear-gradient, .sidebar header, .sidebar li.current::after {
+  background: -webkit-gradient(linear, left top, left bottom, from(#FFB354), to(#ED7839));
+  background: linear-gradient(#FFB354, #ED7839);
+}
+
+.flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 /*# sourceMappingURL=main.css.map */

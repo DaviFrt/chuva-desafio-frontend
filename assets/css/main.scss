@@ -4,6 +4,8 @@ $white-color: #FFF;
 $light-brown-color: #ADA0A0;
 $dark-gray-color: #4E4E4E;
 
+@import "sidebar";
+
 :root {
   font-size: 62.5%;
 }
@@ -16,4 +18,15 @@ $dark-gray-color: #4E4E4E;
 
 body {
   font-size: 1.4rem;
+  font-family: "Quicksand", sans-serif;
+}
+
+.linear-gradient {
+  background: linear-gradient($secondary-color, $primary-color);
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

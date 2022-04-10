@@ -1,0 +1,47 @@
+.sidebar {
+  max-width: 22rem;
+  height: 100vh;
+
+  display: fixed;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+  
+  header {
+    @extend .linear-gradient;
+    padding: 1.5rem;
+
+    text-align: center;
+    color: $white-color;
+  }
+  
+  li {
+    list-style: none;
+    padding: 0.7rem 2.7rem;
+
+    font-size: 1.5rem;
+    font-weight: 500;
+
+    border-bottom: 2px solid #E7E7E7;
+    
+    a {
+      text-decoration: none;
+      color: #725C5C;
+    }
+
+    &.current {
+      background-color: #FDF1EB;
+
+      position: relative;
+    }
+
+    &.current::after{
+      @extend .linear-gradient;
+      content: "";
+      width: 0.5rem;
+      height: 100%;
+
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+  }
+}
