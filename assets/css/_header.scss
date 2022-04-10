@@ -1,0 +1,91 @@
+header {
+  width: 100%;
+  padding: 5px 3.6rem;
+  background-color: #FDF1EB;
+  color: #725C5C;
+
+  .informations { 
+    font-family: "Roboto", sans-serif;
+  }
+  
+  @extend .flex;
+  justify-content: space-between;
+
+  .select-btn {
+    width: 9.6rem;
+    padding: 0.8rem;
+    position: relative;
+
+    @extend .flex;
+    justify-content: space-around;
+
+    background-color: transparent;
+    border-radius: 3px;
+    border: 1px solid #CCC;
+    color: #333;
+    cursor: pointer;
+
+    select {
+      appearance: none;
+      width: 100%;
+      outline: 0;
+      box-shadow: none;
+      border: 0;
+      background-color: transparent;
+      cursor: pointer;
+      text-align: center;
+    }
+
+    span {
+      position: absolute;
+      left: 1px;
+    }
+
+    &::after {
+      content: "\25BC";
+      pointer-events: none;
+      position: absolute;
+      right: 8px;
+    }
+  }
+
+  .lang-user {
+    @extend .flex;
+    color: #333;
+    gap: 10px;
+
+    .avatar{ 
+      position: relative;
+
+      img {
+        width: 4rem;
+        border-radius: 50%;
+      }
+    }
+
+    .avatar::after {
+      content: "2";
+      width: 1.6rem;
+      height: 1.6rem;
+
+      text-align: center;
+      position: absolute;
+      top: -5px;
+      right: -5px;
+
+      background: #F85959;
+      border-radius: 50%;
+      color: $white-color;
+      cursor: pointer;
+    }
+
+    .user {
+      @extend .flex;
+      gap: 5px;
+    }
+
+    .user-infos {
+      text-align: end;
+    }
+  }
+}
