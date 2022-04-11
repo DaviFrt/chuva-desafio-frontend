@@ -1,9 +1,9 @@
-.linear-gradient, .sidebar header, .sidebar li.current::after {
+.linear-gradient, .sidebar header, .sidebar li.current::after, .discussions .create-discussions .create-discussions-infos button {
   background: -webkit-gradient(linear, left top, left bottom, from(#FFB354), to(#ED7839));
   background: linear-gradient(#FFB354, #ED7839);
 }
 
-.flex, header, header .select-btn, header .lang-user, header .lang-user .user, .content aside, .content aside .actions, .content aside a, .content aside .details .title, .content aside .details .summary h2, .summary .content aside .details h2, .content .video .author-infos {
+.flex, header, header .select-btn, header .lang-user, header .lang-user .user, .content aside, .content aside .actions, .content aside a, .content aside .details .title, .content aside .details .summary h2, .summary .content aside .details h2, .content .video .author-infos, .discussions .create-discussions, .discussions .create-discussions .create-discussions-infos, .discussions .create-discussions .create-discussions-infos button, .discussions .topics .topic, .discussions .topics .topic .topic-actions {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -329,6 +329,96 @@ header .lang-user .user-infos {
   display: none;
 }
 
+.discussions h3 {
+  color: #ED7839;
+}
+
+.discussions .create-discussions {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 3rem;
+}
+
+.discussions .create-discussions .create-discussions-infos {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 1rem;
+}
+
+.discussions .create-discussions .create-discussions-infos p {
+  max-width: 62.6rem;
+  text-align: center;
+}
+
+.discussions .create-discussions .create-discussions-infos button {
+  gap: 0.5rem;
+  border: 0;
+  border-radius: 4px;
+  padding: 1rem 2rem;
+  color: #FFF;
+  font-size: 1.5rem;
+  font-weight: 700;
+  -webkit-transform: translateY(18.5px);
+          transform: translateY(18.5px);
+}
+
+.discussions hr {
+  border: 0;
+  border-top: 1px solid #cecdcd;
+}
+
+.discussions .topics .topic {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  gap: 2rem;
+  padding: 1.8rem 2.5rem;
+}
+
+.discussions .topics .topic .topic-title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #ED7839;
+}
+
+.discussions .topics .topic button {
+  background-color: transparent;
+  border: 0;
+}
+
+.discussions .topics .topic .topic-actions {
+  gap: 1.5rem;
+}
+
+.discussions .topics .topic .more {
+  color: #ED7839;
+}
+
+.discussions .topics .topic .more span {
+  font-size: 2.5rem;
+}
+
+.discussions .topics .topic .like {
+  padding: 0.2rem 1rem;
+  background-color: #ED7839;
+  color: #FFF;
+  border-radius: 2px;
+  -webkit-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.discussions .topics .topic .like span {
+  font-size: 2rem;
+}
+
 :root {
   font-size: 62.5%;
 }
@@ -345,10 +435,19 @@ body {
   font-family: "Quicksand", sans-serif;
 }
 
+h1, h2, h3 {
+  font-family: "Roboto", sans-serif;
+}
+
 a {
   text-decoration: none;
   font-family: "Roboto", sans-serif;
   font-weight: 500;
+}
+
+button {
+  cursor: pointer;
+  outline: 0;
 }
 
 .container {
@@ -360,14 +459,14 @@ main {
   padding: 1rem 4rem;
 }
 
-.card, .summary {
+.card, .summary, .discussions, .discussions .topics .topic {
   margin-top: 2rem;
   border: 1px solid #ECECEC;
   border-radius: 3px;
   color: #5C5C5C;
 }
 
-.card .card-content, .summary .card-content {
+.card .card-content, .summary .card-content, .discussions .card-content, .discussions .topics .topic .card-content {
   padding: 1.5rem;
 }
 
