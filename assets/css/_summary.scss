@@ -1,0 +1,27 @@
+.summary {
+  @extend .card;
+
+  .see-more {
+    background-color: transparent;
+    border: 0;
+    outline: 0;
+
+    font-weight: 700;
+    color: $primary-color;
+    cursor: pointer;
+  }
+
+  h2 {
+    @extend .title;
+  }
+
+  p.more-text {
+    margin-top: 2rem;
+    visibility: visible;
+  }
+
+  p.more-text.hidden {
+    visibility: hidden;
+    display: none;
+  }
+}

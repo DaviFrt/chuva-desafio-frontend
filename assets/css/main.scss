@@ -17,6 +17,7 @@ $dark-gray-color: #4E4E4E;
 @import "sidebar";
 @import "header";
 @import "content";
+@import "summary";
 
 :root {
   font-size: 62.5%;
@@ -46,4 +47,25 @@ a {
 
 main {
   padding: 1rem 4rem;
+}
+
+.card {
+  margin-top: 2rem;
+
+  border: 1px solid #ECECEC;
+  border-radius: 3px;
+  color: #5C5C5C;
+
+  .card-content {
+    padding: 1.5rem;
+  }
+}
+
+.title {
+  padding: 1rem 1.5rem;
+
+  background-color: #FDF1EB;
+  border: 1px solid #ECECEC;
+  border-radius: 3px 3px 0 0;
+  color: #4E4E4E;
 }
