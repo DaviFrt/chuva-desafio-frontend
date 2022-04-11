@@ -293,7 +293,7 @@ header .lang-user .user-infos {
   width: 100%;
   position: absolute;
   left: 3rem;
-  bottom: 6rem;
+  bottom: 2rem;
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
