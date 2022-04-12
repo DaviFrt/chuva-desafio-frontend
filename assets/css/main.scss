@@ -80,3 +80,27 @@ main {
   border-radius: 3px 3px 0 0;
   color: #4E4E4E;
 }
+
+.button {
+  @extend .linear-gradient;
+  @extend .flex;
+  gap: 0.5rem;
+
+  border: 0;
+  border-radius: 4px;
+  padding: 1rem 2rem;
+
+  color: $white-color;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.actived {
+  visibility: visible;
+  display: initial;
+}
+
+.disabled {
+  visibility: hidden;
+  display: none;
+}

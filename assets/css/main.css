@@ -1,9 +1,9 @@
-.linear-gradient, .sidebar header, .sidebar li.current::after, .discussions .create-discussions .create-discussions-infos button {
+.linear-gradient, .sidebar header, .sidebar li.current::after, .discussions .form-create .form-content .action-content button, .button, .discussions .create-discussions .create-discussions-infos button, .discussions .topic-created button {
   background: -webkit-gradient(linear, left top, left bottom, from(#FFB354), to(#ED7839));
   background: linear-gradient(#FFB354, #ED7839);
 }
 
-.flex, header, header .select-btn, header .lang-user, header .lang-user .user, .content aside, .content aside .actions, .content aside a, .content aside .details .title, .content aside .details .summary h2, .summary .content aside .details h2, .content .video .author-infos, .discussions .create-discussions, .discussions .create-discussions .create-discussions-infos, .discussions .create-discussions .create-discussions-infos button, .discussions .topics .topic, .discussions .topics .topic .topic-actions {
+.flex, header, header .select-btn, header .lang-user, header .lang-user .user, .content aside, .content aside .actions, .content aside a, .content aside .details .title, .content aside .details .summary h2, .summary .content aside .details h2, .content .video .author-infos, .discussions .create-discussions, .discussions .create-discussions .create-discussions-infos, .discussions .form-create .form-content .action-content, .discussions .form-create .form-content .action-content .icons, .discussions .topic-created, .discussions .topics .topic .topic-actions, .discussions .topics .topic .topic-response .topic-response-author, .discussions .topics .topic .topic-response .topic-response-author p.icon, .discussions .topics .topic .under-analysis, .button, .discussions .create-discussions .create-discussions-infos button, .discussions .topic-created button {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -338,7 +338,13 @@ header .lang-user .user-infos {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
   gap: 3rem;
+}
+
+.discussions .create-discussions.hidden {
+  display: none;
 }
 
 .discussions .create-discussions .create-discussions-infos {
@@ -355,13 +361,6 @@ header .lang-user .user-infos {
 }
 
 .discussions .create-discussions .create-discussions-infos button {
-  gap: 0.5rem;
-  border: 0;
-  border-radius: 4px;
-  padding: 1rem 2rem;
-  color: #FFF;
-  font-size: 1.5rem;
-  font-weight: 700;
   -webkit-transform: translateY(18.5px);
           transform: translateY(18.5px);
 }
@@ -371,52 +370,243 @@ header .lang-user .user-infos {
   border-top: 1px solid #cecdcd;
 }
 
-.discussions .topics .topic {
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
-  gap: 2rem;
-  padding: 1.8rem 2.5rem;
+.discussions .form-create {
+  padding: 1.5rem;
+  display: none;
+  visibility: hidden;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
 }
 
-.discussions .topics .topic .topic-title {
+.discussions .form-create.actived {
+  visibility: visible;
+  display: initial;
+}
+
+.discussions .form-create p {
+  text-align: center;
+}
+
+.discussions .form-create label {
+  display: block;
   font-size: 1.6rem;
   font-weight: 700;
   color: #ED7839;
 }
 
-.discussions .topics .topic button {
-  background-color: transparent;
+.discussions .form-create label:first-of-type {
+  margin-top: 2.5rem;
+}
+
+.discussions .form-create label:last-of-type {
+  margin-top: 1rem;
+}
+
+.discussions .form-create input {
+  width: 100%;
+  height: 3.9rem;
+  padding: 1rem 2rem;
+  border: 1px solid #CCC;
+  border-radius: 3px;
+  color: #4D4D4D;
+  outline: 0;
+}
+
+.discussions .form-create textarea {
+  width: 100%;
+  height: 11.3rem;
+  padding: 1rem;
+  border: 1px solid #CCC;
+  border-radius: 3px;
+  outline: 0;
+  resize: none;
+}
+
+.discussions .form-create .form-content .action-content {
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding-left: 2.5rem;
+  background-color: #EAF1F2;
+  border: 1px solid #CCC;
+  border-radius: 0 0 3px 3px;
+  -webkit-transform: translateY(-1rem);
+          transform: translateY(-1rem);
+}
+
+.discussions .form-create .form-content .action-content .icons {
+  cursor: pointer;
+}
+
+.discussions .form-create .form-content .action-content button {
+  width: 20rem;
+  height: 3rem;
   border: 0;
+  border-radius: 0 0 3px 0;
+  outline: 0;
+  font-weight: 700;
+  font-size: 1.6rem;
+  color: #FFF;
 }
 
-.discussions .topics .topic .topic-actions {
-  gap: 1.5rem;
+.discussions .topic-created {
+  margin: 2rem 0;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 2rem;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  visibility: hidden;
+  display: none;
 }
 
-.discussions .topics .topic .more {
+.discussions .topic-created p:last-of-type {
+  text-decoration: underline;
+  color: #ED7839;
+  cursor: pointer;
+}
+
+.discussions .topic-created.actived {
+  visibility: visible;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.discussions .topics button {
+  border: 0;
+  outline: 0;
+  background-color: transparent;
+}
+
+.discussions .topics .topic {
+  width: 95%;
+  margin: 2rem auto;
+  padding: 1.5rem 2.5rem 0 2.5rem;
+  position: relative;
+  cursor: pointer;
+}
+
+.discussions .topics .topic p.topic-author {
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.discussions .topics .topic .topic-title p:first-of-type {
+  margin-bottom: 0.2rem;
+  font-size: 1.6rem;
+  font-weight: 700;
   color: #ED7839;
 }
 
-.discussions .topics .topic .more span {
-  font-size: 2.5rem;
+.discussions .topics .topic .topic-actions {
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  gap: 1rem;
+  margin: 2rem 0;
 }
 
-.discussions .topics .topic .like {
-  padding: 0.2rem 1rem;
+.discussions .topics .topic .topic-actions button:last-of-type {
   background-color: #ED7839;
-  color: #FFF;
-  border-radius: 2px;
-  -webkit-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  border-radius: 3px;
+  padding: 0.5rem 1rem;
 }
 
-.discussions .topics .topic .like span {
-  font-size: 2rem;
+.discussions .topics .topic .topic-actions button:last-of-type img {
+  width: 16px;
+  height: 16px;
+}
+
+.discussions .topics .topic .topic-responses {
+  visibility: hidden;
+  display: none;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.discussions .topics .topic .topic-responses.show-responses {
+  visibility: visible;
+  display: initial;
+}
+
+.discussions .topics .topic .topic-response {
+  width: calc(100% + 50px);
+  -webkit-transform: translateX(-25px);
+          transform: translateX(-25px);
+  padding: 1.8rem 2.5rem;
+  border: 1px solid #E7E7E7;
+  -webkit-animation: goDown 2s;
+          animation: goDown 2s;
+}
+
+.discussions .topics .topic .topic-response .topic-response-author {
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.discussions .topics .topic .topic-response .topic-response-author p:first-of-type {
+  font-weight: 700;
+}
+
+.discussions .topics .topic .topic-response .topic-response-author p.icon {
+  gap: 1rem;
+  color: #ED7839;
+  font-weight: 700;
+}
+
+.discussions .topics .topic .topic-response .topic-response-content {
+  margin: 2rem 0;
+}
+
+.discussions .topics .topic .topic-response .topic-response-content p + p {
+  margin-top: 1.8rem;
+}
+
+.discussions .topics .topic .topic-response:last-child {
+  border-radius: 0 0 3px 3px;
+}
+
+.discussions .topics .topic .under-analysis {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 1rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.4);
+  -webkit-backdrop-filter: blur(0.5rem);
+          backdrop-filter: blur(0.5rem);
+}
+
+.discussions .topics .topic .under-analysis p.edit {
+  color: #ED7839;
+  text-decoration: underline;
+}
+
+@-webkit-keyframes goDown {
+  0% {
+    max-height: 0;
+  }
+  100% {
+    max-height: 5000px;
+  }
+}
+
+@keyframes goDown {
+  0% {
+    max-height: 0;
+  }
+  100% {
+    max-height: 5000px;
+  }
 }
 
 footer {
@@ -483,5 +673,25 @@ main {
   border: 1px solid #ECECEC;
   border-radius: 3px 3px 0 0;
   color: #4E4E4E;
+}
+
+.button, .discussions .create-discussions .create-discussions-infos button, .discussions .topic-created button {
+  gap: 0.5rem;
+  border: 0;
+  border-radius: 4px;
+  padding: 1rem 2rem;
+  color: #FFF;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.actived {
+  visibility: visible;
+  display: initial;
+}
+
+.disabled {
+  visibility: hidden;
+  display: none;
 }
 /*# sourceMappingURL=main.css.map */

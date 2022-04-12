@@ -8,8 +8,13 @@
   .create-discussions {
     @extend .flex;
     flex-direction: column;
+    transition: 0.5s;
 
     gap: 3rem;
+
+    &.hidden {
+      display: none
+    }
 
     .create-discussions-infos {
       @extend .flex;
@@ -22,18 +27,7 @@
       }
 
       button {
-        @extend .linear-gradient;
-        @extend .flex;
-        gap: 0.5rem;
-
-        border: 0;
-        border-radius: 4px;
-        padding: 1rem 2rem;
-
-        color: $white-color;
-        font-size: 1.5rem;
-        font-weight: 700;
-
+        @extend .button;
         transform: translateY(18.5px);
       }
     }
@@ -45,51 +39,232 @@
     border-top: 1px solid #cecdcd;
   }
 
+  .form-create {
+    padding: 1.5rem;
+    display: none;
+    visibility: hidden;
+    transition: 0.5s;
+    
+    &.actived {
+      visibility: visible;
+      display: initial;
+    }
+
+    p {
+      text-align: center;
+    }
+
+    label {
+      display: block;
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: $primary-color;
+    }
+
+    label:first-of-type {
+      margin-top: 2.5rem;
+    }
+
+    label:last-of-type {
+      margin-top: 1rem;
+    }
+
+    input {
+      width: 100%;
+      height: 3.9rem;
+      padding: 1rem 2rem;
+      border: 1px solid #CCC;
+      border-radius: 3px;
+      color: #4D4D4D;
+      outline: 0;
+    }
+
+    textarea {
+      width: 100%;
+      height: 11.3rem;
+      padding: 1rem;
+      border: 1px solid #CCC;
+      border-radius: 3px;
+      outline: 0;
+      resize: none;
+    }
+
+    .form-content {
+      .action-content {
+        @extend .flex;
+        justify-content: space-between;
+        padding-left: 2.5rem;
+        background-color: #EAF1F2;
+        border: 1px solid #CCC;
+        border-radius: 0 0 3px 3px;
+        transform: translateY(-1rem);
+
+        .icons {
+          @extend .flex;
+          cursor: pointer;
+        }
+
+        button {
+          @extend .linear-gradient;
+          width: 20rem;
+          height: 3rem;
+          border: 0;
+          border-radius: 0 0 3px 0;
+          outline: 0;
+          font-weight: 700;
+          font-size: 1.6rem;
+          color: $white-color;
+        }
+      }
+    }
+  }
+
+  .topic-created {
+    @extend .flex;
+    margin: 2rem 0;
+    flex-direction: column;
+    gap: 2rem;
+    transition: 0.5s;
+    visibility: hidden;
+    display: none;
+
+    p:last-of-type {
+      text-decoration: underline;
+      color: $primary-color;
+      cursor: pointer;
+    }
+
+    button {
+      @extend .button;
+    }
+
+    &.actived {
+      visibility: visible;
+      display: flex;
+    }
+  }
+  
   .topics {
+    button {
+      border: 0;
+      outline: 0;
+      background-color: transparent;
+    }
+
     .topic {
       @extend .card;
-      @extend .flex;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 2rem;
+      width: 95%;
+      margin: 2rem auto;
+      padding: 1.5rem 2.5rem 0 2.5rem;
+      position: relative;
 
-      padding: 1.8rem 2.5rem;
+      cursor: pointer;
 
-      .topic-title {
-        font-size: 1.6rem;
+      p.topic-author {
         font-weight: 700;
-        color: $primary-color;
+        margin-bottom: 1rem;
       }
 
-      button {
-        background-color: transparent;
-        border: 0;
+      .topic-title {
+        p:first-of-type {
+          margin-bottom: 0.2rem;
+          font-size: 1.6rem;
+          font-weight: 700;
+          color: $primary-color;
+        }
       }
 
       .topic-actions {
         @extend .flex;
-        gap: 1.5rem;
-      }
+        justify-content: flex-start;
+        gap: 1rem;
+        margin: 2rem 0;
 
-      .more {
-        color: $primary-color;
+        button:last-of-type{
+          background-color: $primary-color;
+          border-radius: 3px;
+          padding: 0.5rem 1rem;
 
-        span {
-          font-size: 2.5rem;
+          img {
+            width: 16px;
+            height: 16px;
+          }
         }
       }
 
-      .like {
-        padding: 0.2rem 1rem;
-        background-color: $primary-color;
-        color: $white-color;
-        border-radius: 2px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-      
-        span {
-          font-size: 2rem;
+      .topic-responses {
+        visibility: hidden;
+        display: none;
+        transition: 0.5s;
+
+        &.show-responses {
+          visibility: visible;
+          display: initial;
         }
       }
+
+      .topic-response {
+        width: calc(100% + 50px);
+        transform: translateX(-25px);
+        padding: 1.8rem 2.5rem;
+        border: 1px solid #E7E7E7;
+        animation: goDown 2s;
+
+        .topic-response-author {
+          @extend .flex;
+          justify-content: space-between;
+          
+          p:first-of-type {
+            font-weight: 700;
+          }
+
+          p.icon {
+            @extend .flex;
+            gap: 1rem;
+            color: $primary-color;
+            font-weight: 700;
+          }
+        }
+
+        .topic-response-content {
+          margin: 2rem 0;
+
+          p + p {
+            margin-top: 1.8rem;
+          }
+        }
+
+        &:last-child {
+          border-radius: 0 0 3px 3px;
+        }
+      }
+
+      .under-analysis {
+        @extend .flex;
+        flex-direction: column;
+        gap: 1rem;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba( 255, 255, 255, 0.4);
+        backdrop-filter: blur(0.5rem);
+
+        p.edit {
+          color: $primary-color;
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+
+  @keyframes goDown {
+    0% {
+      max-height: 0;
+    }
+    100% {
+      max-height: 5000px;
     }
   }
 }
