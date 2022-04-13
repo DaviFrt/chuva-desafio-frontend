@@ -45,3 +45,58 @@
     }
   }
 }
+
+.functionalities{
+  position: fixed;
+  bottom: 2rem;
+  left: 2rem;
+  transition: 0.5s;
+
+  &.actived {
+    left: 24rem;
+
+    #btn-mobile {
+      .hamburguer {
+        border-top-color: transparent; 
+
+        &::before{
+          transform: rotate(135deg);
+        }
+        
+        &::after {
+          transform: rotate(-135deg);
+          top: -7px;
+        }
+      }
+    }
+  }
+}
+
+#btn-mobile {
+  @extend .flex;
+  padding: 1.2rem 1rem;
+  border: none;
+  background-color: $primary-color;
+  display: none;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 5;
+
+  .hamburguer {
+    width: 2rem;
+    display: block;
+    transition: 0.2s;
+    border-top: 2px solid $white-color;
+
+    &::after, &::before {
+      content: "";
+      display: block;
+      position: relative;
+      width: 2rem;
+      height: 2px;
+      background-color: $white-color;
+      transition: 0.5s;
+      margin-top: 0.5rem;
+    }
+  }
+}

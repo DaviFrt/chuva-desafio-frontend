@@ -1,3 +1,14 @@
+function openSidebar() {
+  const sidebar = document.querySelector(".sidebar");
+  const hamburguerButton = document.querySelector("#btn-mobile");
+  const functionalitiesContainer = document.querySelector(".functionalities")
+
+  hamburguerButton.addEventListener("click", () => {
+    functionalitiesContainer.classList.toggle("actived");
+    sidebar.classList.toggle("actived")
+  });
+}
+
 function seeMore() {
   const dots = document.querySelector(".dots");
   const seeMoreBtn = document.querySelector("button.see-more");
@@ -54,6 +65,7 @@ function createPost() {
   });
 }
 
+openSidebar();
 seeMore();
 openDiscussionTopic();
 createPost();
